@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #070A12;
+    color: #F1F5F9;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .font-mono-num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .font-welcome {
+    font-family: 'Dancing Script', cursive;
+  }
+}
+
+/* Hide native cursor on desktop inside app when custom cursor is active */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .custom-cursor-enabled,
+  .custom-cursor-enabled * {
+    cursor: none !important;
+  }
+}
+
+/* Subtle stadium floodlight & grain backdrop */
+.stadium-floodlight-bg {
+  background-image:
+    radial-gradient(ellipse 65% 40% at 20% 0%, rgba(56, 189, 248, 0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 65% 40% at 80% 0%, rgba(245, 158, 11, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(15, 23, 42, 0.9) 0%, #070A12 100%);
+}
+
+/* Winner row shimmer effect */
+@keyframes championShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.champion-row-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(245, 158, 11, 0.08) 0%,
+    rgba(251, 191, 36, 0.22) 50%,
+    rgba(245, 158, 11, 0.08) 100%
+  );
+  background-size: 200% 100%;
+  animation: championShimmer 6s infinite linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .champion-row-shimmer {
+    animation: none;
+  }
+}
+

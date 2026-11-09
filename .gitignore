@@ -1,0 +1,26 @@
+# AI tools and skills
+.agents/
+.aider-desk/
+skills-lock.json
+.claude/
+.cursor/
+.codex/
+.opencode/
+.gemini/
+.playwright-cli/
+.playwright-mcp/
+design-md/
+
+# Build outputs
+*.exe
+*.o
+*.obj
+*.out
+Backend/server
+Frontend/dist/
+
+# Dependencies and secrets
+node_modules/
+.env
+.env.*
+!.env.example
